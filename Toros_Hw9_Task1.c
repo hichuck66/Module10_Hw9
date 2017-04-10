@@ -23,18 +23,21 @@ void WriteFile(FILE *sFile, float num[]);
 /* Main Program */
 int main(int argc, char *argv[])
 {
+	char **info;
 	char *fName;
-	float num[];
-	argv[1] = fName;
+	FILE *sFile;
+	float num[12];
+	
 
-	if(argc != 2||argv[1] = "--help")
+	if(argc != 2||(argv[1] = "--help"))
 	{
-		Usage();
+		Usage(info);
 	}
 	else
 	{
 		ReadFile(fName,num);
 		OpenCheckFile(fName);
+		WriteFile(sFile, num);
 	}
 
 	return 0;
@@ -43,56 +46,56 @@ int main(int argc, char *argv[])
 
 /* Function Definitions */
 
-void Usage()
+void Usage(char **info)
 {
 printf("Usage ./hw9_task1 <dataFile> <outFileName>");
 return;
 }
 
-int ReadFile(char *fName, float num[])
+void ReadFile(char *fName, float num[])
 {
-	FILE *fName = fopen("inNumbers.dat","r");
 	
-	float num;
+	FILE *inFile = fopen("inNumbers.dat","r");
 	int i = 0;
 	int n;
 
-	while(fscanf(fName, "%d", &num) > 0)
+	while(fscanf(inFile, "%f", num) > 0)
 	{
 		num[i] = n;
 		i++;
 	}
-	fclose(fName);
-
-return 0;
-
+	fclose(inFile);
 }
 
 FILE *OpenCheckFile(char *fName)
 {
-	if(access(fopen(fName, F_OK) !=-1)
+	if(fName != NULL)
 	{
 		char i;
-		printf("file exists. Do you want to overwrite it? Y/N");
-		scanf("%s", i);
-		if(i = "Y"||i = "y")
+		printf("File exists. Do you want to overwrite it? Y/N");
+		scanf("%s",&i);
+		if((i = 'Y')||(i = 'y'))
 		{
-			WriteFile();
+			printf("File was succesfully opened");
 		}
 		else
 		{
-			return 0;
+			printf("The file will not be overwritten.");
+			exit(1);
 		}
 	}
 	else
 	{
 		printf("File does not yet exist.");
-		WriteFile();
+	
 	}
 	return 0;
 }
 
 void WriteFile(FILE *sFile, float num[]);
 {
-	FILE *sFile = fprint
+	FILE *sFile = fprint;
+
+
+return 0;
 }
